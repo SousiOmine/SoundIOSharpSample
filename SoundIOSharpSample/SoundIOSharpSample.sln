@@ -1,6 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundIOSharpSample", "SoundIOSharpSample\SoundIOSharpSample.csproj", "{1A8F11B2-1E58-4487-9B1D-D3F393EB678D}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoundIOSharpSample", "SoundIOSharpSample\SoundIOSharpSample.csproj", "{1A8F11B2-1E58-4487-9B1D-D3F393EB678D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SineWave", "SineWave\SineWave.csproj", "{5D3218C9-29AE-4C7B-8407-FD57E739CBF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +17,15 @@ Global
 		{1A8F11B2-1E58-4487-9B1D-D3F393EB678D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A8F11B2-1E58-4487-9B1D-D3F393EB678D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A8F11B2-1E58-4487-9B1D-D3F393EB678D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D3218C9-29AE-4C7B-8407-FD57E739CBF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D3218C9-29AE-4C7B-8407-FD57E739CBF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D3218C9-29AE-4C7B-8407-FD57E739CBF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D3218C9-29AE-4C7B-8407-FD57E739CBF5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91DE7D71-BD3B-4C1B-82F0-906436B358A9}
 	EndGlobalSection
 EndGlobal

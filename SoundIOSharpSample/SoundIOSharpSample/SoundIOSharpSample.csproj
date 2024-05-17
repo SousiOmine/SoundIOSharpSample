@@ -7,4 +7,10 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Reference Include="libsoundio-sharp">
+        <HintPath>..\..\..\libsoundio-sharp\libsoundio-sharp\bin\Release\netstandard2.1\libsoundio-sharp.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>
