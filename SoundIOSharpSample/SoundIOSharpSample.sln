@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoundIOSharpSample", "Sound
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SineWave", "SineWave\SineWave.csproj", "{5D3218C9-29AE-4C7B-8407-FD57E739CBF5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaveQueue", "WaveQueue\WaveQueue.csproj", "{DFFDC842-BDD5-4124-B722-0CE7CA49C753}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5D3218C9-29AE-4C7B-8407-FD57E739CBF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D3218C9-29AE-4C7B-8407-FD57E739CBF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D3218C9-29AE-4C7B-8407-FD57E739CBF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFFDC842-BDD5-4124-B722-0CE7CA49C753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFFDC842-BDD5-4124-B722-0CE7CA49C753}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFFDC842-BDD5-4124-B722-0CE7CA49C753}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFFDC842-BDD5-4124-B722-0CE7CA49C753}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
