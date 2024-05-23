@@ -7,6 +7,8 @@ namespace WaveQueue
 		static double seconds_offset = 0.0;
 		static Action<IntPtr, double>? write_sample;
 
+		static Queue<double> sample_queue = new Queue<double>();
+
 		static void Main()
 		{
 			var soundIo = new SoundIO();
@@ -56,7 +58,17 @@ namespace WaveQueue
 			outstream.Open();
 			outstream.Start();
 
-			Console.ReadLine();
+			for (; ; )
+			{
+				string line = Console.ReadLine();
+				if(line == "q") break;
+				for(int i = 0; i < 4410; i++)
+				{
+					sample_queue.Enqueue(Math.Sin((i * (1.0 / outstream.SampleRate)) * (440.0 * 2.0 * Math.PI)));
+				}
+				Console.WriteLine("キューを追加したよ");
+				
+			}
 
 			outstream.Dispose();
 			device.RemoveReference();
@@ -89,7 +101,11 @@ namespace WaveQueue
 				double radians_per_second = pitch * 2.0 * Math.PI;
 				for (int frame = 0; frame < frame_count; frame += 1)
 				{
-					double sample = Math.Sin((seconds_offset + frame * seconds_per_frame) * radians_per_second);
+					//double sample = Math.Sin((seconds_offset + frame * seconds_per_frame) * radians_per_second);
+					double sample = 0.0;
+					if (sample_queue.Count > 0) sample = sample_queue.Dequeue();
+					//else continue;
+
 					for (int channel = 0; channel < layout.ChannelCount; channel += 1)
 					{
 
