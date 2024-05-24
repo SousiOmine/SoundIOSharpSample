@@ -85,7 +85,11 @@ namespace WaveQueue
 			double seconds_per_frame = 1.0 / float_sample_rate;
 
 			int frames_left = frame_count_max;
-			frames_left = 1470;
+			if (frame_count_max > 1470)
+			{
+				frames_left = 1470;
+			}
+			
 			int frame_count = 0;
 
 			for (; ; )
