@@ -85,6 +85,7 @@ namespace WaveQueue
 			double seconds_per_frame = 1.0 / float_sample_rate;
 
 			int frames_left = frame_count_max;
+			frames_left = 1470;
 			int frame_count = 0;
 
 			for (; ; )
@@ -97,9 +98,39 @@ namespace WaveQueue
 
 				SoundIOChannelLayout layout = outstream.Layout;
 
-				double pitch = 440.0;
-				double radians_per_second = pitch * 2.0 * Math.PI;
-				for (int frame = 0; frame < frame_count; frame += 1)
+				if (sample_queue.Count > 0)
+				{
+					int count = sample_queue.Count;
+					for (int frame = 0; frame < frame_count && frame < count; frame += 1)
+					{
+						double sample = sample_queue.Dequeue();
+						
+						for (int channel = 0; channel < layout.ChannelCount; channel += 1)
+						{
+
+							var area = results.GetArea(channel);
+							write_sample(area.Pointer, sample);
+							area.Pointer += area.Step;
+						}
+					}
+				}
+				else
+				{
+					//Console.WriteLine("キューが空だよ count:" + frame_count + " min:" + frame_count_min);
+					for (int frame = 0; frame < frame_count; frame += 1)
+					{
+						
+						for (int channel = 0; channel < layout.ChannelCount; channel += 1)
+						{
+
+							var area = results.GetArea(channel);
+							write_sample(area.Pointer, 0);
+							area.Pointer += area.Step;
+						}
+					}
+				}
+
+				/*for (int frame = 0; frame < frame_count; frame += 1)
 				{
 					//double sample = Math.Sin((seconds_offset + frame * seconds_per_frame) * radians_per_second);
 					double sample = 0.0;
@@ -113,7 +144,7 @@ namespace WaveQueue
 						write_sample(area.Pointer, sample);
 						area.Pointer += area.Step;
 					}
-				}
+				}*/
 				seconds_offset = Math.IEEERemainder(seconds_offset + seconds_per_frame * frame_count, 1.0);
 
 				outstream.EndWrite();
